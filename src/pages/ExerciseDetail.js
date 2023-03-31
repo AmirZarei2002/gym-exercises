@@ -21,7 +21,6 @@ const ExerciseDetail = () => {
                 exerciseOptions
             );
             setExerciseDetail(exerciseDetailData);
-            setExerciseDetail(exerciseDetailData);
         };
         fetchExercisesData();
     }, [id]);
