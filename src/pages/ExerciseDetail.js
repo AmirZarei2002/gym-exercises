@@ -12,6 +12,7 @@ import ExerciseVideos from '../components/ExerciseVideos';
 
 const ExerciseDetail = () => {
     const [exerciseDetail, setExerciseDetail] = useState({});
+    const [exerciseVideos, setExerciseVideos] = useState([]);
     const { id } = useParams();
 
     useEffect(() => {
@@ -30,13 +31,17 @@ const ExerciseDetail = () => {
                 `${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`,
                 youtubeOptions
             );
+            setExerciseVideos(exerciseVideoData);
         };
         fetchExercisesData();
     }, [id]);
     return (
         <Box>
             <Detail exerciseDetail={exerciseDetail} />
-            <ExerciseVideos />
+            <ExerciseVideos
+                exerciseVideos={exerciseVideos}
+                name={exerciseDetail.name}
+            />
             <SimilarExercises />
         </Box>
     );
