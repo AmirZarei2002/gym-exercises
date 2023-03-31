@@ -27,11 +27,11 @@ const ExerciseDetail = () => {
             );
             setExerciseDetail(exerciseDetailData);
 
-            const exerciseVideoData = await fetchData(
-                `${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`,
+            const exerciseVideosData = await fetchData(
+                `${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`,
                 youtubeOptions
             );
-            setExerciseVideos(exerciseVideoData);
+            setExerciseVideos(exerciseVideosData.contents);
         };
         fetchExercisesData();
     }, [id]);
